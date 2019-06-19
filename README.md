@@ -5,6 +5,6 @@ This contao module adds a Content Element that allows you to use a specific layo
 <br> You can define a Layout Image in the backend so the User knows what the Contentelement will look like.
 
 # Requirements
-Contao >3.5 (tested with 3.5 and 4.4)
+Contao >4 (tested with 4.7)
 <br>
 this library depends on visualradio (https://github.com/guavestudios/contao-visualradio)

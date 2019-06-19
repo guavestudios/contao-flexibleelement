@@ -3,12 +3,16 @@
 namespace Guave\Flexibleelement\Elements;
 
 use Contao\ContentElement;
+use FilesModel;
+use Image;
 
-class ContentFlexibleElement extends \ContentElement {
+class ContentFlexibleElement extends ContentElement {
+    
 	public static function getIconPath() {
 		global $GLOBALS;
 		return $GLOBALS['TL_FLEXIBLEELEMENT']['iconpath'];
 	}
+	
 	public static function getBackendMap() {
 		$base = static::getIconPath();
 		$arr = array();
@@ -18,6 +22,7 @@ class ContentFlexibleElement extends \ContentElement {
 		}
 		return $arr;
 	}
+	
 	public static function getTemplateByLayout($layout) {
 		$templates = &$GLOBALS['TL_FLEXIBLEELEMENT']['templates'];
 		foreach ($templates as $tmpl)
@@ -50,7 +55,7 @@ class ContentFlexibleElement extends \ContentElement {
 		}
 		if(TL_MODE == 'BE') {
 			if ($tmpl != null) {
-				return '<div><span>FlexibleElement</span><br><br>'.\Image::getHtml(static::getIconPath().'/'.$tmpl['id'].$GLOBALS['TL_FLEXIBLEELEMENT']['iconext'], $label, 'title="'.specialchars($label).'"').'</div>';
+				return '<div><span>FlexibleElement</span><br><br>'.Image::getHtml(static::getIconPath().'/'.$tmpl['id'].$GLOBALS['TL_FLEXIBLEELEMENT']['iconext'], $label, 'title="'.specialchars($label).'"').'</div>';
 			} else {
 				return '<div><span>FlexibleElement</span><br><br>'.$tmplStr.'</div>';
 			}
@@ -73,7 +78,7 @@ class ContentFlexibleElement extends \ContentElement {
 			$images = array();
 			$imagesArr = unserialize($obj->$attr);
 			foreach($imagesArr as $image)
-				$images[] = static::getImageData(\FilesModel::findByUuid($image));;
+				$images[] = static::getImageData(FilesModel::findByUuid($image));;
 
 			$obj->$attr = $images;
 		} else if (is_array($obj->$attr)) {
