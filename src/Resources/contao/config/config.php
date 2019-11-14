@@ -4,7 +4,7 @@ $GLOBALS['TL_CTE']['text']['flexibleelement'] = Guave\Flexibleelement\Elements\C
 
 $GLOBALS['TL_FLEXIBLEELEMENT']['templates'] = [
     [
-        'id'       => 'flexible-title-title-text-text',
+        'id'       => 'flexible-title-text-text',
         'template' => 'ce_2column-text',
     ],
     [
